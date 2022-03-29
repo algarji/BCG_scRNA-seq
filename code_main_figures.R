@@ -205,4 +205,4 @@ DimPlot(nk, split.by='condition', cols='Dark2')
 VlnPlot(nk, features=c('NCAM1', 'FCGR3A', 'XCL1', 'XCL2', 'FCER1G', 'KLRB1', 'KLRC1', 'KLRC2', 'KLRD1', 'KLRG1', 'KLRK1', 'KIR2DL4', 'KIR2DL3', 'KIR3DL1', 'NCR1', 'NCR3'), stack = TRUE, flip = TRUE)
 nk.markers <- FindAllMarkers(nk, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
 nk.markers %>% group_by(cluster) %>% top_n(n = 10, wt = avg_log2FC) -> top10_nk
-DoHeatmap(nk, features = top10_nk$gene, group.colors = Dark1, size = 2, group.bar.height = 0.01) + NoLegend() + scale_fill_gradientn(colors = c("blue", "white", "red"))
+DoHeatmap(nk, features = top10_nk$gene, group.colors = 'Dark2', size = 2, group.bar.height = 0.01) + NoLegend() + scale_fill_gradientn(colors = c("blue", "white", "red"))
